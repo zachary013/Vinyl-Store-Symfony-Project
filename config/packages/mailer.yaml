@@ -1,0 +1,5 @@
+# config/packages/mailer.yaml
+
+framework:
+    mailer:
+        dsn: 'smtp://localhost'  # Update with your SMTP server details

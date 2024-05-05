@@ -1,0 +1,144 @@
+# config/routes.yaml
+# Home page
+app_homepage:
+    path: /
+    controller: App\Controller\HomeController::index
+
+# Authentication routes
+app_login:
+    path: /login
+    controller: App\Controller\LoginController::login
+
+
+app_logout:
+    path: /logout
+    controller: 'App\Controller\SecurityController::logout'
+    methods: ['GET']  # The Symfony security system handles logout via GET request
+
+app_register:
+    path: /register
+    controller: App\Controller\RegistrationController::register
+
+admin_dashboard:
+    path: /admin/dashboard
+    controller: App\Controller\AdminController::adminDashboard
+
+admin_users:
+    path: /admin/users
+    controller: App\Controller\AdminController::manageUsers
+
+admin_user_edit:
+    path: /admin/user/{id}/edit
+    controller: App\Controller\AdminController::editUser
+
+admin_products:
+    path: /admin/products
+    controller: App\Controller\AdminController::manageProducts
+
+admin_product_edit:
+    path: /admin/product/{id}/edit
+    controller: App\Controller\AdminController::editProduct
+
+admin_categories:
+    path: /admin/categories
+    controller: App\Controller\AdminController::manageCategories
+
+admin_category_edit:
+    path: /admin/category/{id}/edit
+    controller: App\Controller\AdminController::editCategory
+
+user_dashboard:
+    path: /user/dashboard
+    controller: App\Controller\UserController::userDashboard
+    # Add access control to restrict this route to ROLE_USER users
+
+# Artist routes
+artist_index:
+    path: /artists
+    controller: 'App\Controller\ArtistController::index'
+    methods: ['GET']
+
+artist_new:
+    path: /artists/new
+    controller: 'App\Controller\ArtistController::new'
+    methods: ['GET', 'POST']
+
+artist_show:
+    path: /artists/{id}
+    controller: 'App\Controller\ArtistController::show'
+    methods: ['GET']
+
+artist_edit:
+    path: /artists/{id}/edit
+    controller: 'App\Controller\ArtistController::edit'
+    methods: ['GET', 'POST']
+
+artist_delete:
+    path: /artists/{id}/delete
+    controller: 'App\Controller\ArtistController::delete'
+    methods: ['POST']
+
+
+# Product routes
+
+# List all products
+product_index:
+    path: /products
+    controller: 'App\Controller\ProductController::index'
+    methods: ['GET']
+
+# Show details of a specific product
+product_show:
+    path: /products/{id}
+    controller: 'App\Controller\ProductController::show'
+    methods: ['GET']
+
+# Create a new product (show form and process submission)
+product_new:
+    path: /products/new
+    controller: 'App\Controller\ProductController::new'
+    methods: ['GET', 'POST']
+
+# Edit an existing product (show form and process submission)
+product_edit:
+    path: /products/{id}/edit
+    controller: 'App\Controller\ProductController::edit'
+    methods: ['GET', 'POST']
+
+# Delete a product
+product_delete:
+    path: /products/{id}/delete
+    controller: 'App\Controller\ProductController::delete'
+    methods: ['POST']
+
+# Category routes
+
+# List all categories
+category_index:
+    path: /categories
+    controller: 'App\Controller\CategoryController::index'
+    methods: ['GET']
+
+# Show details of a specific category
+category_show:
+    path: /categories/{id}
+    controller: 'App\Controller\CategoryController::show'
+    methods: ['GET']
+
+# Create a new category (show form and process submission)
+category_new:
+    path: /categories/new
+    controller: 'App\Controller\CategoryController::new'
+    methods: ['GET', 'POST']
+
+# Edit an existing category (show form and process submission)
+category_edit:
+    path: /categories/{id}/edit
+    controller: 'App\Controller\CategoryController::edit'
+    methods: ['GET', 'POST']
+
+# Delete a category
+category_delete:
+    path: /categories/{id}/delete
+    controller: 'App\Controller\CategoryController::delete'
+    methods: ['POST']
